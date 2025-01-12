@@ -1,7 +1,9 @@
 package com.example.dagger
 
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [UserRepoModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
 
