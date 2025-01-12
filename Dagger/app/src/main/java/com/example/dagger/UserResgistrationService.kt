@@ -1,10 +1,11 @@
 package com.example.dagger
 
 import javax.inject.Inject
+import javax.inject.Named
 
 class UserRegistrationService @Inject constructor(
     private val userRepo: UserRepo,
-    private val notificationService: NotificationService
+    @Named("message") private val notificationService: NotificationService
 ) {
 
     fun register(email: String, password: String) {
