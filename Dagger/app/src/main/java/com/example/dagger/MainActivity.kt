@@ -2,15 +2,30 @@ package com.example.dagger
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+//    Field injection
+    @Inject
+    lateinit var userRegistrationService: UserRegistrationService
+
+    @Inject
+    lateinit var emailService: EmailService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val daggerUserRegistrationComponent = DaggerUserRegistrationComponent.builder().build()
 
-        val userRegistrationService = daggerUserRegistrationComponent.getUserRegistrationInstance()
+        val daggerUserRegistrationComponent = DaggerUserRegistrationComponent.builder().build()
+        daggerUserRegistrationComponent.injectToActivity(this)
         userRegistrationService.register("user@gmail.com", "1234")
+        emailService
+
+//Injection using individual function --------------------------
+//        val userRegistrationService = daggerUserRegistrationComponent.getUserRegistrationInstance()
+//        userRegistrationService.register("user@gmail.com", "1234")
+//        daggerUserRegistrationComponent.emailServiceInstance()
 // Manual injection----------------------
 //
 //        val userRepo = UserRepo()
