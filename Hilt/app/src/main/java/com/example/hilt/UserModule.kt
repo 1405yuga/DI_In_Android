@@ -1,19 +1,28 @@
 package com.example.hilt
 
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import javax.inject.Named
 
 @Module
 @InstallIn(ActivityComponent::class)
-abstract class UserModule {
+class UserModule {
 
-//    @Provides
-//    fun providesUserRepository(): UserRepository {
-//        return FirebaseRepository()
-//    }
+    @Provides
+    @Named("firebase")
+    fun providesFirebaseRepository(): UserRepository {
+        return FirebaseRepository()
+    }
 
-    @Binds
-    abstract fun providesUserRepository(sqlRepository: SQLRepository): UserRepository
+    @Provides
+    @Named("sql")
+    fun providesSQLRepository(sqlRepository: SQLRepository): UserRepository {
+        return sqlRepository
+    }
+
+//    @Binds
+//    @Named("sql")
+//    abstract fun providesUserRepository(sqlRepository: SQLRepository): UserRepository
 }
