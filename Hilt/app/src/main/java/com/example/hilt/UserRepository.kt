@@ -1,11 +1,10 @@
 package com.example.hilt
 
-import android.util.Log
 import javax.inject.Inject
 
-class UserRepository @Inject constructor() {
-    val TAG = this.javaClass.simpleName
+class UserRepository @Inject constructor(val loggerService: LoggerService) {
+
     fun saveUser() {
-        Log.d(TAG, "Save user")
+        loggerService.log("User saved in DB ")
     }
 }
