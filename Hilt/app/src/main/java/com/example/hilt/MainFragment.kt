@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        userRepository.saveUser()
+        userRepository.saveUser("something123@gmail.com", "1234")
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 }
