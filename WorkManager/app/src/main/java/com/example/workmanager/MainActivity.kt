@@ -7,14 +7,17 @@ import androidx.work.Data
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import com.example.workmanager.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        performWork()
-//        createAndShowNotification()
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.workManagerButton.setOnClickListener { performWork() }
+        binding.notificationButton.setOnClickListener { createAndShowNotification() }
     }
 
     private fun createAndShowNotification() {
