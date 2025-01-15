@@ -47,7 +47,7 @@ class NotificationHelper(private val context: Context) {
 
             NotificationManagerCompat.from(context)
                 .notify(
-                    Random.nextInt(),
+                    Random.nextInt(), // notification with same id gets overridden
                     notificationBuilder.build()
                 )
         } else {
