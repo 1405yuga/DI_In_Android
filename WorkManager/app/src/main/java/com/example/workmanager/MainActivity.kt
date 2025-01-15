@@ -12,7 +12,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        performWork()
+        createAndShowNotification()
 
+    }
+
+    private fun createAndShowNotification() {
+        val notificationHelper = NotificationHelper(this)
+        notificationHelper.createNotificationChannel()
+        notificationHelper.showNotification("Test title", "Hi , new notification here!")
+    }
+
+    private fun performWork() {
 //        prepare Input
         val someInput = Data.Builder()
             .putString("INPUT_KEY", "Hello there!")
