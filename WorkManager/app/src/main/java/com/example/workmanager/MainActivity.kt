@@ -9,6 +9,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.example.workmanager.databinding.ActivityMainBinding
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -20,6 +21,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.workManagerButton.setOnClickListener { performWork() }
         binding.notificationButton.setOnClickListener { createAndShowNotification() }
+        binding.pushNotificationButton.setOnClickListener { getFCMTokenForTesting() }
+    }
+
+    private fun getFCMTokenForTesting() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            Log.d(
+                TAG, if (task.isSuccessful) "FCM token : ${task.result}"
+                else "FCM token generation failed"
+            )
+        }
     }
 
     private fun createAndShowNotification() {
@@ -31,19 +42,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun performWork() {
 //        prepare Input
-        val someInput = Data.Builder()
-            .putString("INPUT_KEY", "Hello there!")
-            .build()
+        val someInput = Data.Builder().putString("INPUT_KEY", "Hello there!").build()
 //        define constraints
-        val constraints = Constraints.Builder()
-            .setRequiresCharging(true)
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
+        val constraints = Constraints.Builder().setRequiresCharging(true)
+            .setRequiredNetworkType(NetworkType.CONNECTED).build()
 //        create request
-        val workerRequest = OneTimeWorkRequest.Builder(MyWorker::class.java)
-            .setInputData(someInput)
-            .setConstraints(constraints)
-            .build()
+        val workerRequest = OneTimeWorkRequest.Builder(MyWorker::class.java).setInputData(someInput)
+            .setConstraints(constraints).build()
 
         //enqueue the work
         WorkManager.getInstance(context = this).enqueue(workerRequest)
