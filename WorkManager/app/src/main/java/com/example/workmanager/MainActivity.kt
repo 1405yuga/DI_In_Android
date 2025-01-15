@@ -1,6 +1,7 @@
 package com.example.workmanager
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.Constraints
 import androidx.work.Data
@@ -11,6 +12,7 @@ import com.example.workmanager.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    val TAG = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val notificationHelper = NotificationHelper(this)
         notificationHelper.createNotificationChannel()
         notificationHelper.showNotification("Test title", "Hi , new notification here!")
+        Log.d(TAG, "Notification shown!")
     }
 
     private fun performWork() {
