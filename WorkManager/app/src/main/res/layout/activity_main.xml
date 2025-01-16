@@ -27,4 +27,10 @@
         android:layout_height="wrap_content"
         android:text="Push Notification" />
 
+    <Button
+        android:id="@+id/biometric_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Biometric" />
+
 </LinearLayout>
