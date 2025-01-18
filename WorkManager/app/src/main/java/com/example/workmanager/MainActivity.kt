@@ -1,5 +1,6 @@
 package com.example.workmanager
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -13,6 +14,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.example.workmanager.databinding.ActivityMainBinding
+import com.example.workmanager.screen_states.ScreenStatesActivity
 import com.google.firebase.messaging.FirebaseMessaging
 import java.util.concurrent.Executor
 
@@ -31,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         binding.apiKeyButton.setOnClickListener {
             //get api-key from local.properties
             Log.d(TAG, "API KEY : ${BuildConfig.TEST_API_KEY}")
+        }
+        binding.screenStatesButton.setOnClickListener {
+            startActivity(Intent(this@MainActivity, ScreenStatesActivity::class.java))
         }
     }
 
