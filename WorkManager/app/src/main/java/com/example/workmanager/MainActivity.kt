@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         binding.notificationButton.setOnClickListener { createAndShowNotification() }
         binding.pushNotificationButton.setOnClickListener { getFCMTokenForTesting() }
         binding.biometricButton.setOnClickListener { createBiometrics() }
+        binding.apiKeyButton.setOnClickListener {
+            //get api-key from local.properties
+            Log.d(TAG, "API KEY : ${BuildConfig.TEST_API_KEY}")
+        }
     }
 
     private fun createBiometrics() {

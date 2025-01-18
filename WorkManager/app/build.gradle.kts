@@ -1,3 +1,6 @@
+import com.android.build.api.dsl.ApplicationBuildType
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -19,6 +22,17 @@ android {
     }
 
     buildTypes {
+        val localProperties = Properties().apply {
+            this.load(rootProject.file("local.properties").inputStream())
+        }
+
+        fun addKeys(applicationBuildTypes: ApplicationBuildType) {
+            applicationBuildTypes.buildConfigField(
+                type = "String",
+                name = "TEST_API_KEY",
+                value = localProperties.getProperty("SOME_API_KEY")
+            )
+        }
         debug {
             isMinifyEnabled = false
             isShrinkResources = false
@@ -26,6 +40,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            addKeys(applicationBuildTypes = this)
         }
         release {
             isMinifyEnabled = true
@@ -34,6 +49,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            addKeys(applicationBuildTypes = this)
         }
     }
     compileOptions {
@@ -43,7 +59,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures { viewBinding = true }
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
 }
 
 dependencies {

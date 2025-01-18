@@ -33,4 +33,10 @@
         android:layout_height="wrap_content"
         android:text="Biometric" />
 
+    <Button
+        android:id="@+id/api_key_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GET API KEY" />
+
 </LinearLayout>
