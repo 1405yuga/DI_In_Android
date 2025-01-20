@@ -79,4 +79,5 @@ dependencies {
 
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 }
