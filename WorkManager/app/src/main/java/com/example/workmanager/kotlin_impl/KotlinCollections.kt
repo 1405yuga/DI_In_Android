@@ -22,8 +22,31 @@ fun main() {
 
     //Filtering----------------------------
     val takeFirstFourElements = numbers.take(4)
-    val takeUnlessCondition = numbers.takeUnless { it.contains(5) } //it is collection , if true -> returns null
+    val takeUnlessCondition =
+        numbers.takeUnless { it.contains(5) } //it is collection , if true -> returns null
     println("getFirstFourElements : $takeFirstFourElements")
     println("takeUnlessCondition : $takeUnlessCondition")
 
+    //Sorting---------------------
+    val sorted = numbers.sorted()
+    println("sorted : $sorted")
+
+    //Apply -----------------------------------
+    val person = Person("Yuga", 23)
+
+    val updatePerson = person.apply {
+        name = "Yuga Vasaikar"
+        age = 24
+    }
+    println("UpdatedPerson : $updatePerson")
+
+    //Let--------------------------------
+    val someGreetings = person.let {
+        if (it.age < 18) "Hello ${it.name}"
+        else "Welcome ${it.name}"
+    }
+    println(someGreetings)
+
 }
+
+data class Person(var name: String, var age: Int)
