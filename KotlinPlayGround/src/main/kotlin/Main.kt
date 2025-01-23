@@ -40,4 +40,12 @@ fun loops() {
         print(x)
         x--
     }
+
+    println("Labels---------------------")
+    firstLoop@ for (x in 1..10) {
+        for (y in 1..10) {
+            println("x is $x, y is $y")
+            if (x == 1 && y == 3) break@firstLoop
+        }
+    }
 }
