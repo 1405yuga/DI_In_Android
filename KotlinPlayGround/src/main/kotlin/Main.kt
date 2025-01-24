@@ -7,7 +7,13 @@ fun main() {
     loops()
     classes()
     abstractClass()
+    inheritance()
     exceptions(x = 4)
+}
+
+fun inheritance() {
+    val mango = Mango(name = "Mango", type = "Hapus")
+
 }
 
 fun abstractClass() {
