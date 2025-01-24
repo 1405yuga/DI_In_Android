@@ -1,5 +1,7 @@
 package org.example
 
+import java.awt.Shape
+
 //secondary constructor with primary constructor
 class Person(val name: String) {
     init {
@@ -31,5 +33,12 @@ class Pet {
         this.name = name
         this.age = 0
         println("Secondary constructor Pet : ${this.name} - $age")
+    }
+}
+
+class PrivateConstructorClass private constructor(val type: String) {
+    companion object {
+        fun createCircle(): PrivateConstructorClass = PrivateConstructorClass("Circle")
+        fun createSquare(): PrivateConstructorClass = PrivateConstructorClass("Square")
     }
 }

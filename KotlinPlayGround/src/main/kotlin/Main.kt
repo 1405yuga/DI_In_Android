@@ -12,6 +12,8 @@ fun main() {
 fun classes() {
     val person = Person(name = "Yuga", age = 23)
     val pet = Pet(name = "Kitto")
+    val circle = PrivateConstructorClass.createCircle()
+    println("Instance created: ${circle.type}")
 }
 
 fun exceptions(x: Int) {
