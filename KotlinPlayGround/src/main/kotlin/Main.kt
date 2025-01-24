@@ -19,6 +19,11 @@ fun abstractClass() {
     val dog = Dog()
     dog.eat()
     dog.sound()
+
+    //property access------
+    println("Property access: ${dog.someText}")
+    dog.someText = "World"
+    println("Property access: ${dog.someText}")
 }
 
 fun classes() {
