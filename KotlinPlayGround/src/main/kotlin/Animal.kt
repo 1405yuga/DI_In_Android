@@ -1,11 +1,16 @@
 package org.example
 
-abstract class Animal {
+open class WildCreatures{
+    open fun sound(){
+        println("Roarrrrrrrrr")
+    }
+}
+abstract class Animal : WildCreatures() {
     fun eat() {
         println("Eating !")
     }
 
-    abstract fun sound()
+    abstract override fun sound()
 }
 
 class Dog : Animal() {
