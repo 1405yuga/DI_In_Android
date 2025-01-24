@@ -5,7 +5,22 @@ package org.example
 fun main() {
     whenConditions()
     loops()
+    exceptions(x = 4)
 }
+
+fun exceptions(x: Int) {
+//    require(x>4){"Error: Required x > 4"}
+//    check(x > 4) { "Error: Required x > 4" }
+    val result = try {
+//        error("Random error thrown")
+        check(x > 4) { "Error: Required x > 4" }
+        7
+    } catch (ex: Exception) {
+        -1
+    }
+    println("Result after error : $result")
+}
+
 
 fun whenConditions() {
     println("whenConditions--------------")
