@@ -15,10 +15,21 @@ abstract class Animal : WildCreatures() {
 }
 
 class Dog : Animal() {
+    //using backing field
     var someText: String = ""
         get() = "Hi, $field"
         set(value) {
             field = "Hello $value"
+        }
+
+    //using backing property
+    private var _table: Map<String, Int>? = null
+    val table: Map<String, Int>
+        get() {
+            if (_table == null) {
+                _table = HashMap()
+            }
+            return _table ?: throw AssertionError("Set to null by another thread")
         }
 
     override fun sound() {
