@@ -24,7 +24,7 @@ fun abstractClass() {
     println("Property access: ${dog.someText}")
     dog.someText = "World"
     println("Property access: ${dog.someText}")
-    println(dog.table.)
+    println(dog.table)
 }
 
 fun classes() {
