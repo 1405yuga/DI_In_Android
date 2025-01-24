@@ -12,8 +12,7 @@ fun main() {
 }
 
 fun inheritance() {
-    val mango = Mango(name = "Mango", type = "Hapus")
-
+    val mango = Mango(name = "Mango", age = 10, type = "Hapus")
 }
 
 fun abstractClass() {
