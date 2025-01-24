@@ -6,7 +6,14 @@ fun main() {
     whenConditions()
     loops()
     classes()
+    abstractClass()
     exceptions(x = 4)
+}
+
+fun abstractClass() {
+    val dog = Dog()
+    dog.eat()
+    dog.sound()
 }
 
 fun classes() {
