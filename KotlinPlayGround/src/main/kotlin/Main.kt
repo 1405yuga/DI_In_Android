@@ -5,7 +5,13 @@ package org.example
 fun main() {
     whenConditions()
     loops()
+    classes()
     exceptions(x = 4)
+}
+
+fun classes() {
+    val person = Person(name = "Yuga", age = 23)
+    val pet = Pet(name = "Kitto")
 }
 
 fun exceptions(x: Int) {
