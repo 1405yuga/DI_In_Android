@@ -5,6 +5,14 @@ interface MyInterface {
     fun bar() {
         println("bar in MyInterface")
     }
+
+    val prop: Int
+    val propWithImp: String
+        get() = "Default value"
+
+    fun displayProp(){
+        println("Display Prop : $prop")
+    }
 }
 
 class MyClass : MyInterface {
@@ -15,4 +23,6 @@ class MyClass : MyInterface {
     override fun bar() {
         println("bar in MyClass")
     }
+
+    override val prop: Int = 42
 }

@@ -15,6 +15,8 @@ fun main() {
 fun interfaces() {
     val myClass = MyClass()
     myClass.bar()
+    myClass.displayProp()
+    myClass.propWithImp
 }
 
 fun inheritance() {
