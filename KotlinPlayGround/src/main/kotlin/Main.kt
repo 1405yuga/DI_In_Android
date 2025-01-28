@@ -8,7 +8,13 @@ fun main() {
     classes()
     abstractClass()
     inheritance()
+    interfaces()
     exceptions(x = 4)
+}
+
+fun interfaces() {
+    val myClass = MyClass()
+    myClass.bar()
 }
 
 fun inheritance() {
