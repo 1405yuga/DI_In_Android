@@ -13,7 +13,7 @@ fun main() {
 }
 
 fun interfaces() {
-    val myClass = MyClass()
+    val myClass = MyClassA()
     myClass.bar()
     myClass.displayProp()
     myClass.propWithImp
