@@ -11,6 +11,8 @@ fun interface MyFunctionalInterface {
     }
 }
 
-fun interface IntPredicate{
-    fun accept(i: Int): Boolean
-}
+//fun interface IntPredicate{
+//    fun accept(i: Int): Boolean
+//}
+//converted into typealias , since only one method is present
+typealias IntPredicate = (Int) -> Boolean
