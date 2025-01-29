@@ -1,7 +1,5 @@
 package org.example
 
-import java.awt.Shape
-
 //secondary constructor with primary constructor
 class Person(val name: String) {
     init {
