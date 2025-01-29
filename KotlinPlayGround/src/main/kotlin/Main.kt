@@ -19,6 +19,9 @@ fun functionalInterface() {
     }
 
     myFunctionalInterface.printMessage("Hello World!")
+
+    val isEven = IntPredicate { it % 2 == 0 }
+    println("Is 8 even ? - ${isEven.accept(8)}")
 }
 
 fun interfaces() {

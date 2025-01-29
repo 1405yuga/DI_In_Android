@@ -10,3 +10,7 @@ fun interface MyFunctionalInterface {
         println("SomeOtherImplementedMethods")
     }
 }
+
+fun interface IntPredicate{
+    fun accept(i: Int): Boolean
+}
