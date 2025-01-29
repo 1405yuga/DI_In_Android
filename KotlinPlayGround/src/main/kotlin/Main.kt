@@ -9,7 +9,16 @@ fun main() {
     abstractClass()
     inheritance()
     interfaces()
+    functionalInterface()
     exceptions(x = 4)
+}
+
+fun functionalInterface() {
+    val myFunctionalInterface = MyFunctionalInterface { m ->
+        println("Printing $m")
+    }
+
+    myFunctionalInterface.printMessage("Hello World!")
 }
 
 fun interfaces() {
