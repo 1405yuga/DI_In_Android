@@ -24,9 +24,16 @@ fun extensions() {
         return "$this!"
     }
 
+    //function extension on custom class
+    fun Person.greet(){
+        println("Hello, ${this.name}")
+    }
+
     val text = "Hello"
     println("Extension function:${text.addExclamation()}")
     println("Property extension: ${text.firstCharacter}")
+    val person = Person(name = "Yuga")
+    person.greet()
 }
 
 fun functionalInterface() {
