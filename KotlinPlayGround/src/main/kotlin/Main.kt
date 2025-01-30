@@ -14,6 +14,10 @@ fun main() {
     exceptions(x = 4)
 }
 
+//property extension
+val String.firstCharacter: Char
+    get() = this[0]
+
 fun extensions() {
     //function extension
     fun String.addExclamation(): String {
@@ -22,6 +26,7 @@ fun extensions() {
 
     val text = "Hello"
     println("Extension function:${text.addExclamation()}")
+    println("Property extension: ${text.firstCharacter}")
 }
 
 fun functionalInterface() {
