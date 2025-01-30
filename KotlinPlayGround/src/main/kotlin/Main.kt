@@ -10,7 +10,18 @@ fun main() {
     inheritance()
     interfaces()
     functionalInterface()
+    extensions()
     exceptions(x = 4)
+}
+
+fun extensions() {
+    //function extension
+    fun String.addExclamation(): String {
+        return "$this!"
+    }
+
+    val text = "Hello"
+    println("Extension function:${text.addExclamation()}")
 }
 
 fun functionalInterface() {
