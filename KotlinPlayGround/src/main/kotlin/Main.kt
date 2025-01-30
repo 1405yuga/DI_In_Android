@@ -25,14 +25,20 @@ fun extensions() {
     }
 
     //function extension on custom class
-    fun Person.greet(){
+    fun Person.greet() {
         println("Hello, ${this.name}")
+    }
+
+    //companion object extension
+    fun Dog.Companion.printCompanion() {
+        println("Companion object extension")
     }
 
     val text = "Hello"
     println("Extension function:${text.addExclamation()}")
     println("Property extension: ${text.firstCharacter}")
     val person = Person(name = "Yuga")
+    Dog.printCompanion()
     person.greet()
 }
 

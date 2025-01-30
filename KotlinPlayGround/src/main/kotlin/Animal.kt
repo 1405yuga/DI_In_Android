@@ -15,6 +15,9 @@ abstract class Animal : WildCreatures() {
 }
 
 class Dog : Animal() {
+    companion object{
+        //some companion object
+    }
     //using backing field
     var someText: String = ""
         get() = "Hi, $field"
