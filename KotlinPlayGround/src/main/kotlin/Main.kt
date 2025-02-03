@@ -26,10 +26,11 @@ fun main() {
 }
 
 fun dataclasses() {
-    val user1= User("Alice", 23)
+    val user1 = User("Alice", 23)
     println(user1)
-    val user2= User("Bob", 25)
+    val user2 = user1.copy(name = "Bob")
     println(user2)
+    println("Equality of users : ${user1 == user2}")
 }
 
 //property extension
