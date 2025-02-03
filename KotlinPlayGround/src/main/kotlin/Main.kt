@@ -1,5 +1,14 @@
 package org.example
 
+import org.example.abstract_classes.Dog
+import org.example.classes.Person
+import org.example.classes.Pet
+import org.example.classes.PrivateConstructorClass
+import org.example.functional_interface.IntPredicate
+import org.example.functional_interface.MyFunctionalInterface
+import org.example.inheritance.Mango
+import org.example.interfaces.MyClassA
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {

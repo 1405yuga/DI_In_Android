@@ -1,4 +1,4 @@
-package org.example
+package org.example.functional_interface
 
 fun interface MyFunctionalInterface {
     fun printMessage(message: String) //only one abstract method

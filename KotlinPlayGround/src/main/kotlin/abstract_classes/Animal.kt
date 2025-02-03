@@ -1,4 +1,4 @@
-package org.example
+package org.example.abstract_classes
 
 open class WildCreatures {
     open fun sound() {
@@ -15,9 +15,10 @@ abstract class Animal : WildCreatures() {
 }
 
 class Dog : Animal() {
-    companion object{
+    companion object {
         //some companion object
     }
+
     //using backing field
     var someText: String = ""
         get() = "Hi, $field"

@@ -1,4 +1,4 @@
-package org.example
+package org.example.inheritance
 
 //Base class with primary constructor
 //open class Tree(val name: String) {

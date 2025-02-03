@@ -1,4 +1,4 @@
-package org.example
+package org.example.classes
 
 //secondary constructor with primary constructor
 class Person(val name: String) {
