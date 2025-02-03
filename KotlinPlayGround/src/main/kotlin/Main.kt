@@ -4,6 +4,7 @@ import org.example.abstract_classes.Dog
 import org.example.classes.Person
 import org.example.classes.Pet
 import org.example.classes.PrivateConstructorClass
+import org.example.dataclass.User
 import org.example.functional_interface.IntPredicate
 import org.example.functional_interface.MyFunctionalInterface
 import org.example.inheritance.Mango
@@ -20,7 +21,15 @@ fun main() {
     interfaces()
     functionalInterface()
     extensions()
+    dataclasses()
     exceptions(x = 4)
+}
+
+fun dataclasses() {
+    val user1= User("Alice", 23)
+    println(user1)
+    val user2= User("Bob", 25)
+    println(user2)
 }
 
 //property extension
