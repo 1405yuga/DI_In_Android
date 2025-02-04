@@ -9,11 +9,8 @@ import org.example.functional_interface.IntPredicate
 import org.example.functional_interface.MyFunctionalInterface
 import org.example.inheritance.Mango
 import org.example.interfaces.MyClassA
-import org.example.sealed_classes.Error
-import org.example.sealed_classes.Error.CustomError
-import org.example.sealed_classes.Error.DatabaseError
-import org.example.sealed_classes.Error.NetworkError
-import org.example.sealed_classes.SomeRandom
+import org.example.sealed_classes.*
+import org.example.sealed_classes.Error.*
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -30,7 +27,8 @@ fun main() {
     sealedclasses()
     exceptions(x = 4)
 }
-fun handleError(error: Error){
+
+fun handleError(error: Error) {
     when (error) {
         is NetworkError -> println("Network issue!")
         is DatabaseError -> println("Database failure!")
@@ -39,9 +37,16 @@ fun handleError(error: Error){
     }
 }
 
-fun sealedclasses() {
-    handleError(Error.NetworkError)
+fun processPayment(payment: Payment) {
+    when (payment) {
+        CashPayment -> println("Cash payment")
+        is CreditCardPayment -> println("Credit card payment")
+    }
+}
 
+fun sealedclasses() {
+    handleError(NetworkError)
+    processPayment(CreditCardPayment("1234"))
 }
 
 fun dataclasses() {

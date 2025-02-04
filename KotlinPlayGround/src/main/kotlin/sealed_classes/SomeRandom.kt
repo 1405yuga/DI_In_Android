@@ -1,4 +1,3 @@
 package org.example.sealed_classes
 
-class SomeRandom: Error() {
-}
+class SomeRandom : Error()
