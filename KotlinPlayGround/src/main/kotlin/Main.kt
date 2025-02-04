@@ -9,6 +9,11 @@ import org.example.functional_interface.IntPredicate
 import org.example.functional_interface.MyFunctionalInterface
 import org.example.inheritance.Mango
 import org.example.interfaces.MyClassA
+import org.example.sealed_classes.Error
+import org.example.sealed_classes.Error.CustomError
+import org.example.sealed_classes.Error.DatabaseError
+import org.example.sealed_classes.Error.NetworkError
+import org.example.sealed_classes.SomeRandom
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -22,7 +27,21 @@ fun main() {
     functionalInterface()
     extensions()
     dataclasses()
+    sealedclasses()
     exceptions(x = 4)
+}
+fun handleError(error: Error){
+    when (error) {
+        is NetworkError -> println("Network issue!")
+        is DatabaseError -> println("Database failure!")
+        is CustomError -> println("Error: ${error.message}")
+        is SomeRandom -> println("Some random error")
+    }
+}
+
+fun sealedclasses() {
+    handleError(Error.NetworkError)
+
 }
 
 fun dataclasses() {
@@ -31,6 +50,8 @@ fun dataclasses() {
     val user2 = user1.copy(name = "Bob")
     println(user2)
     println("Equality of users : ${user1 == user2}")
+    val (name) = user1
+    println(name)
 }
 
 //property extension
